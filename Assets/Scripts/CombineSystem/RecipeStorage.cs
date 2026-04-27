@@ -10,7 +10,16 @@ public enum IngredientType
     OrangeBlock,
     WhiteBlock,
     BlackBlock,
+    GrayBlock,
     WaterBlock,
+    AcidBlock,
+    FireBlock,
+    LightBlock,
+    NeonBlock,
+    SodiumBlock,
+    HydrogenBlock,
+    SteamBlock,
+    SaltBlock,
 }
 
 public class RecipeStorage : MonoBehaviour

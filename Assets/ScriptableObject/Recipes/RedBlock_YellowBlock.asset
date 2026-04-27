@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953118f386113764b812c997f59366ee, type: 3}
   m_Name: RedBlock_YellowBlock
   m_EditorClassIdentifier: 
-  IngredientA: {fileID: 3141424704184807218, guid: 22d38873a8d652349b7d833d034629a7, type: 3}
-  IngredientB: {fileID: 8627654671445507424, guid: 5a8aefabbe4103842b45f8448354ee9f, type: 3}
-  Result: {fileID: 9135563437144954770, guid: 3137d95b6daea104e930532df9f9c7a6, type: 3}
+  IngredientA: 0
+  IngredientB: 4
+  Result:
+  - {fileID: 9135563437144954770, guid: 3137d95b6daea104e930532df9f9c7a6, type: 3}
+  ExplosionPower: 0

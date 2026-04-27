@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 953118f386113764b812c997f59366ee, type: 3}
-  m_Name: RedBlock_GreenBlock
+  m_Script: {fileID: 11500000, guid: f918398f0684009408d40918ec4a6f65, type: 3}
+  m_Name: AcidBlockData
   m_EditorClassIdentifier: 
-  IngredientA: 0
-  IngredientB: 2
-  Result:
-  - {fileID: 8627654671445507424, guid: 5a8aefabbe4103842b45f8448354ee9f, type: 3}
-  ExplosionPower: 0
+  Type: 10
+  State: 0
+  BoilingPoint: 100
+  MeltingPoint: 0
+  SolidObject: {fileID: 0}
+  LiquidObject: {fileID: 0}
+  GasObject: {fileID: 0}

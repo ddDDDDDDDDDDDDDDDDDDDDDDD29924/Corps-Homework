@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RecipeData", menuName = "ScriptableObjects/RecipeData")]
 public class RecipeData : ScriptableObject
 {
-    public GameObject IngredientA;
-    public GameObject IngredientB;
+    public IngredientType IngredientA;
+    public IngredientType IngredientB;
 
-    public GameObject Result;
+    public GameObject[] Result;
+
+    [Header("Features and Properties")]
+    public float ExplosionPower = 0f;
 }

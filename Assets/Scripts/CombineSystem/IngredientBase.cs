@@ -4,6 +4,8 @@ public class IngredientBase : MonoBehaviour
 {
     public IngredientData Data;
 
+    public float Temperature = 22f;
+
     private void OnCollisionEnter(Collision collision)
     {
         IngredientBase otherObject = collision.gameObject.GetComponent<IngredientBase>();
@@ -30,13 +32,13 @@ public class IngredientBase : MonoBehaviour
 
     private bool CheckMatch(RecipeData recipe, GameObject a, GameObject b)
     {
-        IngredientBase RBaseA = recipe.IngredientA.GetComponent<IngredientBase>();
-        IngredientBase RBaseB = recipe.IngredientB.GetComponent<IngredientBase>();
+        IngredientType RBaseA = recipe.IngredientA;
+        IngredientType RBaseB = recipe.IngredientB;
         IngredientBase ABase = a.GetComponent<IngredientBase>();
         IngredientBase BBase = b.GetComponent<IngredientBase>();
 
-        return (RBaseA.Data.Type == ABase.Data.Type && RBaseB.Data.Type == BBase.Data.Type) ||
-               (RBaseA.Data.Type == BBase.Data.Type && RBaseB.Data.Type == ABase.Data.Type);
+        return (RBaseA == ABase.Data.Type && RBaseB == BBase.Data.Type) ||
+               (RBaseA == BBase.Data.Type && RBaseB == ABase.Data.Type);
     }
 
     private bool CheckGameState()
@@ -55,7 +57,11 @@ public class IngredientBase : MonoBehaviour
     private void SpawnResult(RecipeData recipe, GameObject a, GameObject b)
     {
         Vector3 spawnPos = (a.transform.position + b.transform.position) / 2f;
-        Instantiate(recipe.Result, spawnPos, Quaternion.identity);
+        foreach (var result in recipe.Result) 
+        { 
+            Instantiate(result.gameObject, spawnPos, Quaternion.identity);
+        }
+
         Destroy(a);
         Destroy(b);
     }
