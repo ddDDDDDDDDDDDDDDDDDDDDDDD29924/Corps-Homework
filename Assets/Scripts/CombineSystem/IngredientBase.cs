@@ -4,8 +4,6 @@ public class IngredientBase : MonoBehaviour
 {
     public IngredientData Data;
 
-    public float Temperature = 22f;
-
     private void OnCollisionEnter(Collision collision)
     {
         IngredientBase otherObject = collision.gameObject.GetComponent<IngredientBase>();

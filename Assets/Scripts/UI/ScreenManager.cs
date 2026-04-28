@@ -5,6 +5,8 @@ public class ScreenManager : MonoBehaviour
 {
     public static ScreenManager Instance { get; private set; }
 
+    private bool TestMode = true;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -21,7 +23,7 @@ public class ScreenManager : MonoBehaviour
         if (GameManager.Instance == null)
             return;
 
-        if (GameManager.Instance.CurrentGameState == GameState.Playing)
+        if (GameManager.Instance.CurrentGameState == GameState.Playing && !TestMode)
         {
             SetCursorLockState(CursorLockMode.Locked);
             SetCursorVisibility(false);
