@@ -8,6 +8,11 @@ public class IngredientThermalConductivity : MonoBehaviour
 
     [SerializeField] float conductionMultiplier = 1f;
 
+    private float efficiency = 0.2f;
+    private float roomTemp = 22f;
+
+    private float accuracy = 10f;
+
     public float Temperature = 0f;
 
     private void Awake()
@@ -36,7 +41,7 @@ public class IngredientThermalConductivity : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f / accuracy);
 
             GameObject[] objects = GetAllITCObjects();
 
@@ -44,16 +49,31 @@ public class IngredientThermalConductivity : MonoBehaviour
             {
                 IngredientThermalConductivity itc = obj.GetComponent<IngredientThermalConductivity>();
                 float temp = itc.Temperature;
-                float condRange = Mathf.Abs(temp * 0.1f);
+                float thermCond = itc.thermalConductivity;
+                float condRange = Mathf.Abs(Temperature * 0.1f);
                 float distance = Vector3.Distance(transform.position, obj.transform.position);
+                float mediumCond = (thermalConductivity + thermCond) / 2f;
 
-                if (distance <= condRange && Temperature < temp)
+                if (distance <= condRange && temp < Temperature)
                 {
-                    float conduction = (1 - distance / condRange) * thermalConductivity * conductionMultiplier;
+                    float conduction = (1 - distance / condRange) * mediumCond * conductionMultiplier / accuracy;
 
-                    Temperature += conduction;
-                    itc.Temperature -= conduction;
+                    Temperature -= conduction;
+                    itc.Temperature += conduction * efficiency;
                 }
+            }
+
+            if (Temperature != roomTemp)
+            {
+                float difference = Mathf.Abs(roomTemp - Temperature);
+                float conduction = thermalConductivity * difference * 0.005f / accuracy;
+
+                if (Temperature > roomTemp)
+                {
+                    conduction *= -1f;
+                }
+
+                Temperature += conduction;
             }
         }
     }

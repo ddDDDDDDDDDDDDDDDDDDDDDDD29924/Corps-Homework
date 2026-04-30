@@ -13,3 +13,11 @@ MonoBehaviour:
   m_Name: YellowBlockData
   m_EditorClassIdentifier: 
   Type: 4
+  State: 0
+  BoilingPoint: 100
+  MeltingPoint: 0
+  StartTemperature: 250
+  ThermalConductivity: 1
+  SolidObject: {fileID: 0}
+  LiquidObject: {fileID: 0}
+  GasObject: {fileID: 0}
