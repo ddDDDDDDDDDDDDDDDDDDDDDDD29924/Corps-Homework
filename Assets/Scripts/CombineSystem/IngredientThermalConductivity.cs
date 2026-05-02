@@ -8,8 +8,9 @@ public class IngredientThermalConductivity : MonoBehaviour
 
     [SerializeField] float conductionMultiplier = 1f;
 
-    private float efficiency = 0.2f;
-    private float roomTemp = 22f;
+    private const float airCondLimit = 0.1f;
+
+    private const float roomTemp = 22f;
 
     private float accuracy = 10f;
 
@@ -39,9 +40,11 @@ public class IngredientThermalConductivity : MonoBehaviour
 
     private IEnumerator ThermalCycle()
     {
+        float interval = 1f / accuracy;
+
         while (true)
         {
-            yield return new WaitForSeconds(1f / accuracy);
+            yield return new WaitForSeconds(interval);
 
             GameObject[] objects = GetAllITCObjects();
 
@@ -59,14 +62,14 @@ public class IngredientThermalConductivity : MonoBehaviour
                     float conduction = (1 - distance / condRange) * mediumCond * conductionMultiplier / accuracy;
 
                     Temperature -= conduction;
-                    itc.Temperature += conduction * efficiency;
+                    itc.Temperature += conduction;
                 }
             }
 
             if (Temperature != roomTemp)
             {
                 float difference = Mathf.Abs(roomTemp - Temperature);
-                float conduction = thermalConductivity * difference * 0.005f / accuracy;
+                float conduction = thermalConductivity * Mathf.Clamp(difference, airCondLimit, float.MaxValue) * 0.005f / accuracy;
 
                 if (Temperature > roomTemp)
                 {

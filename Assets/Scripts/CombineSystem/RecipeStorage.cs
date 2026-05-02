@@ -18,6 +18,7 @@ public enum IngredientType
     NeonBlock,
     SodiumBlock,
     HydrogenBlock,
+    IceBlock,
     SteamBlock,
     SaltBlock,
 }

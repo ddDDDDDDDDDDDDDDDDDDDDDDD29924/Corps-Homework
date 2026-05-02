@@ -14,6 +14,48 @@ public class IngredientBase : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        PhysicalState ingState = Data.State;
+
+        GameObject solid = Data.SolidObject;
+        GameObject liquid = Data.LiquidObject;
+        GameObject gas = Data.GasObject;
+
+        float meltingPoint = Data.MeltingPoint;
+        float boilingPoint = Data.BoilingPoint;
+
+        float currentTemp = GetComponent<IngredientThermalConductivity>().Temperature;
+
+        if (ingState == PhysicalState.Solid && currentTemp >= meltingPoint)
+        {
+            TurnInto(liquid, meltingPoint);
+        }
+        else if (ingState == PhysicalState.Liquid && currentTemp >= boilingPoint)
+        {
+            TurnInto(gas, boilingPoint);
+        }
+        else if (ingState == PhysicalState.Liquid && currentTemp < meltingPoint)
+        {
+            TurnInto(solid, meltingPoint - 0.001f);
+        }
+        else if (ingState == PhysicalState.Gas && currentTemp < boilingPoint)
+        {
+            TurnInto(liquid, boilingPoint - 0.001f);
+        }
+    }
+
+    private void TurnInto(GameObject newObj, float temp)
+    {
+        Vector3 position = transform.position;
+        Quaternion rotation = transform.rotation;
+        
+        GameObject obj = Instantiate(newObj, position, rotation);
+        obj.GetComponent<IngredientThermalConductivity>().Temperature = temp;
+
+        Destroy(gameObject);
+    }
+
     private void TryCombine(GameObject obj1, GameObject obj2)
     {
         if (obj1.GetInstanceID() > obj2.GetInstanceID()) return;
