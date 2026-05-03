@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3744108269142997879}
   - component: {fileID: 1572771583616105980}
   - component: {fileID: 4384984005827544599}
+  - component: {fileID: 4595741522262864985}
   m_Layer: 3
   m_Name: WaterBlock
   m_TagString: Untagged
@@ -150,3 +151,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: c31f36c30ccfa614db3f065e1b12cbcd, type: 2}
+--- !u!114 &4595741522262864985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8803589063525871641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076238e0c8bc15440a7f929ea37bc9d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  conductionMultiplier: 1
+  Temperature: 0

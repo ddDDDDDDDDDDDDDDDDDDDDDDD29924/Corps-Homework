@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f918398f0684009408d40918ec4a6f65, type: 3}
   m_Name: SteamBlockData
   m_EditorClassIdentifier: 
-  Type: 0
-  State: 0
+  Type: 17
+  State: 2
   BoilingPoint: 100
   MeltingPoint: 0
-  StartTemperature: 22
-  ThermalConductivity: 1
+  StartTemperature: 122
+  ThermalConductivity: 10
   SolidObject: {fileID: 0}
   LiquidObject: {fileID: 0}
   GasObject: {fileID: 0}
