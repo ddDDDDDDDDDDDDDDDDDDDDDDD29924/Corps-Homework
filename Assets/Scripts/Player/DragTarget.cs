@@ -18,6 +18,7 @@ public class DragTarget : MonoBehaviour
     [SerializeField] private GameObject Floor;
 
     Rigidbody rb;
+    PhysicsParameters pp;
 
     private float DragRange => playerData.dragRange;
     private float DragMinDistance => playerData.dragMinDistance;
@@ -41,12 +42,15 @@ public class DragTarget : MonoBehaviour
                 {
                     targetObject = hit.collider.gameObject;
                     rb = targetObject.GetComponent<Rigidbody>();
-                    rb.useGravity = false;
+                    pp = targetObject.GetComponent<PhysicsParameters>();
+                    if (rb != null)
+                        rb.useGravity = false;
+                    if (pp != null)
+                        pp.isDragging = true;
+
                 }
                 if (DragDistance == 0f)
-                {
                     DragDistance = Vector3.Distance(Camera.main.transform.position, hit.collider.gameObject.transform.position);
-                }
             }
 
             Vector3 targetPoint = Camera.main.transform.forward * Mathf.Clamp(DragDistance, DragMinDistance, DragRange) + Camera.main.transform.position;
@@ -57,7 +61,10 @@ public class DragTarget : MonoBehaviour
         {
             if (targetObject != null)
             {
-                rb.useGravity = true;
+                if (rb != null)
+                    rb.useGravity = true;
+                if (pp != null)
+                    pp.isDragging = false;
                 DragDistance = 0f;
                 targetObject = null;
             }

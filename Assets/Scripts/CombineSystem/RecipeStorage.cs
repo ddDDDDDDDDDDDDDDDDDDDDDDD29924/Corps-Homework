@@ -38,7 +38,7 @@ public class RecipeStorage : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public RecipeData[] RecipeDatas;
+    public RecipeData[] RecipeDatas = ResourceLoader.GetRecipeDatasInFolder();
     public GameObject Worktable;
     public float CombineRange = 2f;
 }

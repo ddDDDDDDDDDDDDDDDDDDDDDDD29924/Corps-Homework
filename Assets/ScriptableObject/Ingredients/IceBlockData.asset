@@ -18,6 +18,6 @@ MonoBehaviour:
   MeltingPoint: 0
   StartTemperature: -22
   ThermalConductivity: 2.22
-  SolidObject: {fileID: 0}
-  LiquidObject: {fileID: 0}
-  GasObject: {fileID: 0}
+  SolidObject: {fileID: 2604205638471769869, guid: 34da74d0803f55c4cbd0bebd2b05c788, type: 3}
+  LiquidObject: {fileID: 8803589063525871641, guid: fc22bcdd7bda19b4184e413ea8714712, type: 3}
+  GasObject: {fileID: 216872299463390668, guid: 3170d285456b8024eb644dffff859553, type: 3}

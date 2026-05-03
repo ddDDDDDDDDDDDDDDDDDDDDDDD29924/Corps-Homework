@@ -113,6 +113,7 @@ public class BootstrapManager : MonoBehaviour
 
         // Загружаем из Resources — работает и в редакторе, и в билде
         inputManager.inputActions = Resources.Load<InputActionAsset>("InputSystem_Actions");
+        
 
         if (inputManager.inputActions == null)
         {
