@@ -27,19 +27,19 @@ public class IngredientBase : MonoBehaviour
 
         float currentTemp = GetComponent<IngredientThermalConductivity>().Temperature;
 
-        if (ingState == PhysicalState.Solid && currentTemp >= meltingPoint)
+        if (ingState == PhysicalState.Solid && currentTemp >= meltingPoint && liquid != null)
         {
             TurnInto(liquid, meltingPoint);
         }
-        else if (ingState == PhysicalState.Liquid && currentTemp >= boilingPoint)
+        else if (ingState == PhysicalState.Liquid && currentTemp >= boilingPoint && gas != null)
         {
             TurnInto(gas, boilingPoint);
         }
-        else if (ingState == PhysicalState.Liquid && currentTemp < meltingPoint)
+        else if (ingState == PhysicalState.Liquid && currentTemp < meltingPoint && solid != null)
         {
             TurnInto(solid, meltingPoint - 0.001f);
         }
-        else if (ingState == PhysicalState.Gas && currentTemp < boilingPoint)
+        else if (ingState == PhysicalState.Gas && currentTemp < boilingPoint && liquid != null)
         {
             TurnInto(liquid, boilingPoint - 0.001f);
         }

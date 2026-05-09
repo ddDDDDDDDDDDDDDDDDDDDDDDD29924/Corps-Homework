@@ -17,10 +17,26 @@ public enum IngredientType
     LightBlock,
     NeonBlock,
     SodiumBlock,
+    CarbonBlock,
     HydrogenBlock,
+    HeliumBlock,
+    OxygenBlock,
     IceBlock,
     SteamBlock,
     SaltBlock,
+    IronBlock,
+    MoltenIronBlock,
+    CopperBlock,
+    MoltenCopperBlock,
+    GoldBlock,
+    MoltenGoldBlock,
+    SilverBlock,
+    MoltenSilverBlock,
+    AluminumBlock,
+    MoltenAluminumBlock,
+    NickelBlock,
+    MoltenNickelBlock,
+
 }
 
 public class RecipeStorage : MonoBehaviour
@@ -36,9 +52,16 @@ public class RecipeStorage : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        Initialize();
     }
 
-    public RecipeData[] RecipeDatas = ResourceLoader.GetRecipeDatasInFolder();
+    private void Initialize()
+    {
+        RecipeDatas = ResourceLoader.GetRecipeDatasInFolder();
+    }
+
+    public RecipeData[] RecipeDatas;
     public GameObject Worktable;
     public float CombineRange = 2f;
 }

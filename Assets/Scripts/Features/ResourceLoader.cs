@@ -6,7 +6,7 @@ public class ResourceLoader
 {
     public static RecipeData[] GetRecipeDatasInFolder()
     {
-        string[] guids = AssetDatabase.FindAssets("t:RecipeData", new[] { "Assets/ScriptableObjects/Recipes" });
+        string[] guids = AssetDatabase.FindAssets("t:RecipeData", new[] { "Assets/ScriptableObject/Recipes" });
         List<RecipeData> recipeDatas = new List<RecipeData>();
         foreach (string guid in guids)
         {

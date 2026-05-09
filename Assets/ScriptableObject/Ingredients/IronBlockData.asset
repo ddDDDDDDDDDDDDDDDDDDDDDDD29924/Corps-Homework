@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f918398f0684009408d40918ec4a6f65, type: 3}
-  m_Name: AcidBlockData
+  m_Name: IronBlockData
   m_EditorClassIdentifier: 
-  Type: 10
-  State: 1
-  BoilingPoint: 100
-  MeltingPoint: 0
+  Type: 22
+  State: 0
+  BoilingPoint: 100000000
+  MeltingPoint: 1538
   StartTemperature: 22
-  ThermalConductivity: 0.5
+  ThermalConductivity: 80
   SolidObject: {fileID: 0}
-  LiquidObject: {fileID: 6570584602059467687, guid: 9fff945e662d7924c88b58b5617bb13e, type: 3}
+  LiquidObject: {fileID: 0}
   GasObject: {fileID: 0}
