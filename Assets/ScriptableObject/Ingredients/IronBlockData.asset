@@ -17,7 +17,7 @@ MonoBehaviour:
   BoilingPoint: 100000000
   MeltingPoint: 1538
   StartTemperature: 22
-  ThermalConductivity: 80
-  SolidObject: {fileID: 0}
-  LiquidObject: {fileID: 0}
+  ThermalConductivity: 1
+  SolidObject: {fileID: 2536428311561211102, guid: 22f1d9fab6c603f41851e8d7f349eb60, type: 3}
+  LiquidObject: {fileID: 3965180825938490398, guid: 88e1e7336edb24d4299bd33b0101bbbf, type: 3}
   GasObject: {fileID: 0}

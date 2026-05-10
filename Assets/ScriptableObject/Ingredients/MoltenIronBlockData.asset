@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f918398f0684009408d40918ec4a6f65, type: 3}
+  m_Name: MoltenIronBlockData
+  m_EditorClassIdentifier: 
+  Type: 23
+  State: 1
+  BoilingPoint: 100000000
+  MeltingPoint: 1538
+  StartTemperature: 1700
+  ThermalConductivity: 1
+  SolidObject: {fileID: 2536428311561211102, guid: 22f1d9fab6c603f41851e8d7f349eb60, type: 3}
+  LiquidObject: {fileID: 3965180825938490398, guid: 88e1e7336edb24d4299bd33b0101bbbf, type: 3}
+  GasObject: {fileID: 0}

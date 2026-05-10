@@ -109,4 +109,11 @@ public class DragTarget : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         Debug.Log("Waited for " + seconds + " seconds.");
     }
+
+    private void GetLastDraggableAncestor(GameObject obj)
+    {
+        GameObject ancestor = null;
+
+        
+    }
 }

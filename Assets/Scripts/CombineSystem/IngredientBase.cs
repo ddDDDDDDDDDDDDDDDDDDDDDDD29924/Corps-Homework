@@ -14,7 +14,7 @@ public class IngredientBase : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         PhysicalState ingState = Data.State;
 

@@ -24,14 +24,14 @@ public class IngredientThermalConductivity : MonoBehaviour
         {
             IngData = IngBase.Data;
         }
-    }
-
-    private void Start()
-    {
         if (IngData != null)
         {
             Temperature = startTemperature;
         }
+    }
+
+    private void Start()
+    {
         StartCoroutine(ThermalCycle());
     }
 

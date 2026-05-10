@@ -17,7 +17,7 @@ MonoBehaviour:
   BoilingPoint: 100
   MeltingPoint: 0
   StartTemperature: 122
-  ThermalConductivity: 10
+  ThermalConductivity: 1
   SolidObject: {fileID: 0}
   LiquidObject: {fileID: 0}
   GasObject: {fileID: 0}
