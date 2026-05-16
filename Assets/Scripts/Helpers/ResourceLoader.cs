@@ -19,4 +19,21 @@ public class ResourceLoader
         }
         return recipeDatas.ToArray();
     }
+
+    public static GameObject GetLastAncestorWithLayerMask(GameObject obj, LayerMask layerMask)
+    {
+        GameObject lastAncestor = null;
+        Transform current = obj.transform.parent;
+
+        while (current != null)
+        {
+            if (((1 << current.gameObject.layer) & layerMask) != 0)
+            {
+                lastAncestor = current.gameObject;
+            }
+            current = current.parent;
+        }
+
+        return lastAncestor;
+    }
 }

@@ -12,7 +12,7 @@ public class IngredientThermalConductivity : MonoBehaviour
 
     private const float roomTemp = 22f;
 
-    private float accuracy = 10f;
+    public const float accuracy = 10f;
 
     public float Temperature = 0f;
 

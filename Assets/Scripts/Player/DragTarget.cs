@@ -110,10 +110,8 @@ public class DragTarget : MonoBehaviour
         Debug.Log("Waited for " + seconds + " seconds.");
     }
 
-    private void GetLastDraggableAncestor(GameObject obj)
+    private GameObject GetLastDraggableAncestor(GameObject obj)
     {
-        GameObject ancestor = null;
-
-        
+        return ResourceLoader.GetLastAncestorWithLayerMask(obj, Layers);
     }
 }
