@@ -5,15 +5,34 @@ using UnityEngine;
 public class Heater : MonoBehaviour
 {
     [SerializeField] private float power = 1000f;
+    [SerializeField] private Interaction interaction;
+    [SerializeField] private ParticleSystem particles;
 
     private float accuracy = IngredientThermalConductivity.accuracy;
 
     public bool isHeating = false;
+
     private List<IngredientThermalConductivity> ITCs = new List<IngredientThermalConductivity>();
 
     private void Start()
     {
         StartCoroutine(HeatCoroutine());
+    }
+
+    private void FixedUpdate()
+    {
+        if (interaction != null && interaction.Interacted)
+        {
+            isHeating = !isHeating;
+            if (particles != null)
+            {
+                if (isHeating)
+                    particles.Play();
+                else
+                    particles.Stop();
+            }
+            interaction.Interacted = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
